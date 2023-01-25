@@ -1,0 +1,15 @@
+{% extends "admin/admin base.html" %}
+{% block content %}
+{% load crispy_forms_filters %}
+
+<h1><u>GENERATE BILL</u></h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{form|crispy}}
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+
+{% endblock %}

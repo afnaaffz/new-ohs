@@ -1,0 +1,48 @@
+{% extends 'admin/admin base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="col-lg-18 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Payment Details</h4>
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>SL NO.</th>
+                          <th>NAME</th>
+                          <th>BILL_DATE</th>
+                          <th>AMOUNT</th>
+<!--                          <th>PAID_ON</th>-->
+                          <th>STATUS</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for i in bill %}
+                        <tr>
+                          <td>{{forloop.counter}}</td>
+                          <td>{{ i.name }}</td>
+                          <td>{{ i.bill_date }}</td>
+                          <td>{{ i.amount }}</td>
+<!--                          <td>{{ i.paid_on }}</td>-->
+                          <td>
+                              {% if i.status == 0 %}
+                        <button type="button" class="btn btn-danger">Payment Pending</button>
+                        {% elif i.status == 1 %}
+                        <button type="button" class="btn btn-warning">Payment Confirmed</button>
+                            {% elif i.status == 2 %}
+
+                        <button type="button" class="btn btn-warning">Paid in direct</button>
+                              {% endif %}
+                          </td>
+
+
+                        </tr>
+                      {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+{% endblock %}

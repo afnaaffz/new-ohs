@@ -1,0 +1,12 @@
+{% extends "worker/worker base.html" %}
+{% block content %}
+{% load crispy_forms_filters %}
+
+<h1><u>SCHEDULES</u></h1>
+<form method="POST">
+    {% csrf_token %}
+    {{form|crispy}}
+    <button type="submit" class="btn btn-primary">ADD</button>
+</form>
+
+{% endblock %}

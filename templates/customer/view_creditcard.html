@@ -1,0 +1,46 @@
+{% extends "customer/customer base.html" %}
+{% block content %}
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--</body>-->
+<!--</html>-->
+<div class="card" style="width: 65rem;">
+  <div class="card-body">
+    <h5 class="card-title">View CreditCard</h5>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">SL</th>
+      <th scope="col">CARD NO</th>
+      <th scope="col">CARD CVV</th>
+      <th scope="col">EXPIRY DATE</th>
+      <th scope="col">STATUS</th>
+    </tr>
+  </thead>
+  <tbody>
+      {% for i in data %}
+    <tr>
+      <td>{{forloop.counter}}</td>
+      <td>{{i.card_no}}</td>
+        <td>{{i.card_cvv}}</td>
+         <td>{{i.expiry_date}}</td>
+<!--         <td>{{i.status}}</td>-->
+
+
+     </td>
+    </tr>
+{% endfor %}
+  </tbody>
+  </table>
+
+{% endblock %}
+        </div>
+</div>
