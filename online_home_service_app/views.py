@@ -1,4 +1,3 @@
-
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
@@ -9,8 +8,9 @@ from online_home_service_app.models import Register, Login, Register1, Complaint
     Bill, CreditCard
 
 
-# Create your views here.
 
+
+# Create your views here.
 
 def index(request):
     return render(request,"index.html")
@@ -37,7 +37,7 @@ def login_page(request):
     return render(request,"login.html")
 
 
-#########################admin######################33
+#########################ADMIN######################
 def adminbase(request):
     return render(request,"admin/admin base.html")
 
@@ -188,7 +188,7 @@ def update(request,id):
 
 # this is to update the data in the workers_data
 
-####################customer####################333
+####################CUSTOMER####################333
 def customers(request):
     return render(request,"customer/customers.html")
 
@@ -237,12 +237,14 @@ def view(request):
     return render(request, "customer/view.html", {"data": data})
 
 # customer can see the reply given by admin for their feedback
+# admin will reply to the feedback of the customer
 
 def del_feedback(request,id):
     wm = Complaints.objects.get(id=id)
     wm.delete()
     return redirect("view")
 
+# here customer can delete feedback
 
 def customer_view_schedule(request):
     n = Schedule.objects.all
