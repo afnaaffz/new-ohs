@@ -18,6 +18,12 @@ def index(request):
 def indexx(request):
     return render(request,"indexx.html")
 
+def contact(request):
+    return render(request,"contact.html")
+
+def profile(request):
+    return render(request,"profile.html")
+
 def login_page(request):
     if request.method == "POST":
         username = request.POST.get("uname")
@@ -419,10 +425,17 @@ def worker_view_appointment(request):
     # print(a)
     # b = a.objects.get(user=request.user)
 
-    c = Register1.objects.get(user=request.user)
-    s = Schedule.objects.filter(worker=c)
-    app = Take_Appointment.objects.filter(schedule=s)
-    return render(request,"worker/worker_view_appointment.html",{"b":app})
+    c = request.user
+    print(c)
+    s = Schedule.objects.filter(worker__name=c)
+    print(s)
+
+    for i in s:
+        app = []
+        print(i)
+
+        app = Take_Appointment.objects.filter(schedule=i)
+        return render(request,"worker/worker_view_appointment.html",{"b":app})
 
 def worker_view_workers_data(request):
     data = Register1.objects.all()
@@ -441,5 +454,3 @@ def update_worker_data(request,id):
     return render(request, "worker/update_worker_data.html", {'form': form})
 
 
-def edit_profile(request):
-    return render(request,"worker/edit_profile.html")

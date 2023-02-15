@@ -6,7 +6,8 @@ urlpatterns =[
     path("",views.index,name="index"),
     path("login_page",views.login_page,name="login_page"),
     path("indexx",views.indexx,name="indexx"),
-
+    path("contact", views.contact, name="contact"),
+path("profile", views.profile, name="profile"),
 
     ##############ADMIN#############
 
@@ -59,6 +60,5 @@ urlpatterns =[
   path("worker_view_schedule" ,views.worker_view_schedule ,name="worker_view_schedule"),
   path("delete_work_view/<int:id>/" ,views.delete_work_view ,name="delete_work_view"),
   path("worker_view_appointment", views.worker_view_appointment, name="worker_view_appointment"),
-    path("edit_profile", views.edit_profile, name="edit_profile"),
 
 ]

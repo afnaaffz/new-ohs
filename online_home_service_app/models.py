@@ -12,7 +12,7 @@ class Register(models.Model):
     user = models.OneToOneField(Login,on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     address = models.CharField(max_length=100)
-    mobile = models.CharField(max_length=40)
+    mobile = models.CharField(max_length=10)
     email = models.EmailField()
     def __str__(self):
         return self.name
@@ -31,7 +31,7 @@ class Register1(models.Model):
     name = models.CharField(max_length=100)
     profile_pic = models.FileField(upload_to='profilepic/')
     address = models.CharField(max_length=100)
-    mobile = models.CharField(max_length=40)
+    mobile = models.CharField(max_length=10)
     email = models.EmailField()
     work_type = models.ForeignKey(work,on_delete=models.CASCADE)
 
@@ -65,6 +65,6 @@ class Bill(models.Model):
     status = models.IntegerField(default=0)
 
 class CreditCard(models.Model):
-    card_no = models.CharField(max_length=30)
-    card_cvv = models.CharField(max_length=30)
-    expiry_date = models.CharField(max_length=200)
+    card_no = models.CharField(max_length=13)
+    card_cvv = models.CharField(max_length=3)
+    expiry_date = models.DateField()
